@@ -1,3 +1,8 @@
+# Dropshipp
+
+Dummy Prodcut Manager
+Made using React with Shopify Polaris
+
 # Shopify App Node
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.md)
