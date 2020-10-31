@@ -14,6 +14,7 @@ import {
   ChoiceList,
   PageActions,
   Form,
+  Button,
 } from "@shopify/polaris";
 
 const SettingsForm = () => {
@@ -58,7 +59,7 @@ const SettingsForm = () => {
     setConnected((connected) => !connected);
   }, [connected]);
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = useCallback(
     (event) => {
       event.preventDefault();
       console.log("SettingsForm -> connected", connected);
@@ -71,8 +72,9 @@ const SettingsForm = () => {
         "SettingsForm -> reportingEmailFrequency",
         reportingEmailFrequency
       );
-    };
-  }, []);
+    },
+    [event]
+  );
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -162,8 +164,8 @@ const SettingsForm = () => {
               choices={[
                 { label: "Never", value: "Never" },
                 { label: "Daily", value: "Daily" },
-                { label: "Weekly", value: "Weekl" },
-                { label: "Monthly", value: "Never" },
+                { label: "Weekly", value: "Weekly" },
+                { label: "Monthly", value: "Monthly" },
               ]}
               selected={reportingEmailFrequency}
               onChange={useCallback((frequency) => {
@@ -173,7 +175,7 @@ const SettingsForm = () => {
           </Card>
         </Layout.AnnotatedSection>
         <Layout.Section>
-          <PageActions primaryAction={{ content: "Save" }}></PageActions>
+          <Button submit>Submit</Button>
         </Layout.Section>
       </Layout>
     </Form>
